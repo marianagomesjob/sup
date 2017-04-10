@@ -36,6 +36,11 @@ include_once("conexao.php");
 		$pag[7] = "listar_upload.php";
 		$pag[8] = "visual_upload.php";
 		$pag[9] = "editar_upload.php";
+		//Projeto
+		$pag[10]  = "cadastra_projeto.php";
+		$pag[11] = "listar_projeto.php";
+		$pag[12] = "visual_projeto.php";
+		$pag[13] = "editar_projeto.php";
 		
 		if(!empty($link)){
 			if(file_exists($pag[$link])){

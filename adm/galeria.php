@@ -35,7 +35,7 @@
                             <a href="#">Home</a>
                         </li>
                         <li>
-                            <a href="http://localhost/fotolog/adm/index.php">Login</a>
+                            <a href="#">Login</a>
                         </li>
                     </ul>
                 </div>

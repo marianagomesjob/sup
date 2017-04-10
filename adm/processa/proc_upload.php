@@ -13,6 +13,7 @@ include_once("../conexao.php");
 $nome 				= $_POST["nome"];
 $descricao_curta 	= $_POST["descricao_curta"];
 $descricao_longa 	= $_POST["descricao_longa"];
+$preco 				= $_POST["preco"];
 $tag 				= $_POST["tag"];
 $description 		= $_POST["description"];
 $arquivo	 		= $_FILES['arquivo']['name'];
@@ -50,20 +51,22 @@ if(array_search($extensao, $_UP['extensoes'])=== false){
 	nome, 			
 	descricao_curta,
 	descricao_longa,
+	preco, 			
 	tag, 			
 	description,	
 	created) VALUES(
 	'$nome',
 	'$descricao_curta',
 	'$descricao_longa',
+	'$preco',
 	'$tag',
 	'$description',
 
 	NOW())");
 	echo "
-		
+		<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/fotolog/adm/administrativo.php?link=7'>
 		<script type=\"text/javascript\">
-			alert(\"A imagem não foi cadastrada for favor, envie arquivos com as seguintes extensões: png, jpg, jpeg e gif. Mas informações sobre o álbum foram cadastras.\");
+			alert(\"A imagem não foi cadastrada for favor, envie arquivos com as seguintes extensões: png, jpg, jpeg e gif. As informações do produto foi cadastrado.\");
 		</script>
 	";
 }
@@ -74,6 +77,7 @@ else if ($_UP['tamanho'] < $_FILES['arquivo']['size']){
 	nome, 			
 	descricao_curta,
 	descricao_longa,
+	preco, 			
 	tag, 			
 	description,	
  
@@ -81,12 +85,13 @@ else if ($_UP['tamanho'] < $_FILES['arquivo']['size']){
 	'$nome',
 	'$descricao_curta',
 	'$descricao_longa',
+	'$preco',
 	'$tag',
 	'$description',
 
 	NOW())");
 	echo "
-		
+		<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/fotolog/adm/administrativo.php?link=7'>
 		<script type=\"text/javascript\">
 			alert(\"O arquivo enviado é muito grande, envie arquivos de até 2mb. As informações do produto foi cadastrado.\");
 		</script>
@@ -111,6 +116,7 @@ else{
 		nome, 			
 		descricao_curta,
 		descricao_longa,
+		preco, 			
 		tag, 			
 		description, 	
 		imagem, 		
@@ -119,27 +125,77 @@ else{
 		'$nome',
 		'$descricao_curta',
 		'$descricao_longa',
+		'$preco',
 		'$tag',
 		'$description',
 		'$nome_final',
 
 		NOW())");
 		echo "
-			
+			<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/fotolog/adm/administrativo.php?link=7'>
 			<script type=\"text/javascript\">
-				alert(\" Álbum cadatrado com Sucesso.\");
+				alert(\"Produto cadatrado com Sucesso.\");
 			</script>
 		";	
 	}else{
 		//Upload não efetuado com sucesso, exibe a mensagem
 		echo "
-			
+			<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/fotolog/adm/administrativo.php?link=7'>
 			<script type=\"text/javascript\">
-				alert(\"Álbum não foi cadatrado com Sucesso.\");
+				alert(\"Produto não foi cadatrado com Sucesso.\");
 			</script>
 		";
 	}
 }
-	?>
+
+/*$query = mysql_query("INSERT INTO produtos (
+nome, 			
+descricao_curta,
+descricao_longa,
+preco, 			
+tag, 			
+description, 	
+imagem, 		
+categoria_id, 	
+situacao_id, 	 
+created) VALUES(
+'$nome',
+'$descricao_curta',
+'$descricao_longa',
+'$preco',
+'$tag',
+'$description',
+'$arquivo',
+'$categoria_id',
+'$situacao_id',
+NOW())");
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+	</head>
+
+	<body>
+		<?php
+		if (mysql_affected_rows() != 0 ){	
+			echo "
+				
+				<script type=\"text/javascript\">
+					alert(\"Produto cadastrado com Sucesso.\");
+				</script>
+			";		   
+		}
+		 else{ 	
+				echo "
+				
+				<script type=\"text/javascript\">
+					alert(\"Produto não foi cadastrado com Sucesso.\");
+				</script>
+			";		   
+
+		}
+*/
+		?>
 	</body>
 </html>
