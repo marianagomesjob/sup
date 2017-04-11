@@ -52,7 +52,11 @@
 		  <div class="form-group">
 				<label for="inputEmail3" class="col-sm-2 control-label">Foto do Produto (500x500)</label>
 				<div class="col-sm-10">
-					<input name="arquivo" type="file"/>	
+					<input name="arquivo[]" type="file"/>	
+					<input name="arquivo[]" type="file"/>	
+					<input name="arquivo[]" type="file"/>	
+					<input name="arquivo[]" type="file"/>	
+					<input name="arquivo[]" type="file"/>	
 				</div>
 		  </div>
 		  
