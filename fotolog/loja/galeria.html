@@ -1,12 +1,3 @@
-<?php
-	session_start();
-	include_once("conexao.php");
-	//Executa consulta
-	$result = mysql_query("SELECT * FROM produtos");
-	$resultado = mysql_fetch_assoc($result);
-	$foto = $resultado['imagem']; 
-?>
-
 <html>
 	<head>
         <meta charset="utf-8">
@@ -35,7 +26,7 @@
                             <a href="#">Home</a>
                         </li>
                         <li>
-                            <a href="http://localhost/fotolog/adm/index.php">Login</a>
+                            <a href="#">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -59,34 +50,42 @@
 						</div>
 				</div>			
 			</div>
-			</br>
-			
-
-			
             <div class="container">
+
                 <div class="row">
-					<?php
-						$sql = mysql_query("SELECT * FROM produtos");
-						while($linha = mysql_fetch_array($sql)){
-							$id = $linha["id"];
-							$foto = $linha["imagem"];
-							$nome = $linha["nome"];
-							$descricao_curta = $linha["descricao_curta"];
-				?>
-                    <div class="col-md-3">
-                        <a class="btn" data-toggle="modal" data-target="#galeria">
-							<img src="<?php echo "../foto/$foto"; ?>" width="168" height="168">
-						</a>
-						<div class="container">
-							<h3><?php echo $linha['nome']; ?></h3>
-						<p><?php echo $linha['descricao_curta']; ?></p>	
-						</div>
+                    <div class="col-md-4">
+                        <a class="btn" data-toggle="modal" data-target="#galeria"><img src="https://unsplash.imgix.net/photo-1423439793616-f2aa4356b37e?w=1024&amp;q=50&amp;fm=jpg&amp;s=3b42f9c018b2712544debf4d6a4998ff" class="img-responsive"></a>
+                        <h3>A title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,&nbsp;</p>
                     </div>
-						
-					<?php
-						}
-					?>
-				</div>
+                    <div class="col-md-4">
+                        <a class="btn" data-toggle="modal" data-target="#galeria"><img src="https://unsplash.imgix.net/photo-1422222948315-28aadb7a2cb8?w=1024&amp;q=50&amp;fm=jpg&amp;s=cfeadbd7a991e58b553bee29a7eeca55" class="img-responsive"></a>
+                        <h2>A title</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,&nbsp;</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn" data-toggle="modal" data-target="#galeria"><img src="https://unsplash.imgix.net/photo-1414005987108-a6d06de8769f?w=1024&amp;q=50&amp;fm=jpg&amp;s=b37798a9dbd0c8884af2261b518970e3" class="img-responsive"></a>
+                        <h2>A ttile</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,&nbsp;</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <a class="btn" data-toggle="modal" data-target="#galeria"><img src="https://unsplash.imgix.net/photo-1422222948315-28aadb7a2cb8?w=1024&amp;q=50&amp;fm=jpg&amp;s=cfeadbd7a991e58b553bee29a7eeca55" class="img-responsive"></a>
+                        <h3>A title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,&nbsp;</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn" data-toggle="modal" data-target="#galeria"><img src="https://unsplash.imgix.net/photo-1422222948315-28aadb7a2cb8?w=1024&amp;q=50&amp;fm=jpg&amp;s=cfeadbd7a991e58b553bee29a7eeca55" class="img-responsive"></a>
+                        <h3>A title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,&nbsp;</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn" data-toggle="modal" data-target="#galeria"><img src="https://unsplash.imgix.net/photo-1422222948315-28aadb7a2cb8?w=1024&amp;q=50&amp;fm=jpg&amp;s=cfeadbd7a991e58b553bee29a7eeca55" class="img-responsive"></a>
+                        <h2>A title</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,&nbsp;</p>
+                    </div>
+                </div>
             </div>
         </div>
         <footer class="section section-success">
@@ -109,7 +108,7 @@
                                 <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
                                 <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
                                 <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
-
+                                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
                             </div>
                         </div>
                         <div class="row">
@@ -117,6 +116,7 @@
                                 <a href="#"><i class="fa fa-3x fa-fw fa-instagram text-inverse"></i></a>
                                 <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse"></i></a>
                                 <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse"></i></a>
+                                <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse"></i></a>
                             </div>
                         </div>
                     </div>
@@ -128,40 +128,33 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title">Galeria</h4>
+                        <h4 class="modal-title">Modal title</h4>
                     </div>
                     <div class="modal-body">
                         <div id="fullcarousel-example" data-interval="false" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="item active">
-									<img src="<?php echo "../foto/$foto"; ?>" width="166" height="168">
-									<div class="carousel-caption">
+                                    <img src="https://unsplash.imgix.net/photo-1423439793616-f2aa4356b37e?w=1024&amp;q=50&amp;fm=jpg&amp;s=3b42f9c018b2712544debf4d6a4998ff">
+                                    <div class="carousel-caption">
                                         <h2>Title</h2>
                                         <p>Description</p>
                                     </div>
                                 </div>
-								
-								<?php
-								$sql = mysql_query("SELECT * FROM produtos");
-									while($linha = mysql_fetch_array($sql)){
-										$id = $linha["id"];
-										$foto = $linha["imagem"];
-										$nome = $linha["nome"];
-										$descricao_curta = $linha["descricao_curta"];
-								?>
-								 <div class="item">
-									<img src="<?php echo "../foto/$foto"; ?>" width="166" height="166">
-									<div class="carousel-caption">
-										<h2><?php echo $linha['nome']; ?></h2>
-										<p><?php echo $linha['descricao_curta']; ?></p>	
+                                <div class="item">
+                                    <img src="https://unsplash.imgix.net/photo-1422222948315-28aadb7a2cb8?w=1024&amp;q=50&amp;fm=jpg&amp;s=cfeadbd7a991e58b553bee29a7eeca55">
+                                    <div class="carousel-caption">
+                                        <h2>Title</h2>
+                                        <p>Description</p>
                                     </div>
-								</div>
-						
-								<?php
-									}
-								?>
-								
-                           </div>
+                                </div>
+                                <div class="item">
+                                    <img src="https://unsplash.imgix.net/photo-1414005987108-a6d06de8769f?w=1024&amp;q=50&amp;fm=jpg&amp;s=b37798a9dbd0c8884af2261b518970e3">
+                                    <div class="carousel-caption">
+                                        <h2>Title</h2>
+                                        <p>Description</p>
+                                    </div>
+                                </div>
+                            </div>
                             <a class="left carousel-control" href="#fullcarousel-example" data-slide="prev"><i class="icon-prev fa fa-angle-left"></i></a>
                             <a class="right carousel-control" href="#fullcarousel-example" data-slide="next"><i class="icon-next fa fa-angle-right"></i></a>
                         </div>
@@ -169,5 +162,6 @@
                 </div>
             </div>
         </div>
-	</body>
-	</html>
+    
+
+</body></html>
