@@ -2,8 +2,7 @@
 session_start();
 include_once("../seguranca.php");
 include_once("../conexao.php");
-$id 				= $_GET["id"];
-
+$id= $_GET["id"];
 $query = "DELETE FROM produtos WHERE id=$id";
 $resultado = mysql_query($query);
 $linhas = mysql_affected_rows();

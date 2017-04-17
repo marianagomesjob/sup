@@ -52,6 +52,7 @@
 			<div class="col-sm-3 col-md-1">
 				<b>Nivel de Acesso:</b>
 			</div>
+			
 			<div class="col-sm-9 col-md-11">
 				<?php echo $resultado['nivel_acesso_id']; ?>
 			</div>

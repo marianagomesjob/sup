@@ -23,20 +23,13 @@
 		<li class="dropdown">
 		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Imagem <span class="caret"></span></a>
 		  <ul class="dropdown-menu">
-			<li><a href="administrativo.php?link=7">Listar Imagens </a></li>
+			<li><a href="administrativo.php?link=7">Galeria </a></li>
 			
 			<!--/.Link
 			<li><a href="administrativo.php?link=10">Listar Produto</a></li>-->                
 		  </ul>
 		</li>
-		<li class="dropdown">
-		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projeto <span class="caret"></span></a>
-		  <ul class="dropdown-menu">
-			<li><a href="administrativo.php?link=11">Listar</a></li>
-			<li><a href="administrativo.php?link=10">Cadastrar</a></li>                
-			<!--/.Link<li><a href="administrativo.php?link=18">Nivel de Acesso</a></li>-->
-		  </ul>
-		</li>		
+		
 		
 		
 

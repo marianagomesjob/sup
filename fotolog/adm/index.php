@@ -28,7 +28,8 @@
 	?>
     <div class="container">		
       <form class="form-signin" method="POST" action="valida_login.php">
-        <h2 class="form-signin-heading text-center">Área para Usuário Cadastrado</h2>
+        <h2 class="form-signin-heading text-center">Área Administrativa</h2>
+		<br>
         <label for="inputEmail" class="sr-only">Usuário</label>
 		
         <input type="text" name="usuario" class="form-control" placeholder="Digitar o Usuário" required autofocus><br />
@@ -46,8 +47,11 @@
 				}
 			?>
 		</p>
+		<div class="container">	
+			<center><a href="http://localhost/fotolog/adm/galeria.php">Galeria</a></center>
+		</div>
     </div> <!-- /container -->
-
+	
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>

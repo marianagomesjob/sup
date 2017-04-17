@@ -3,21 +3,21 @@
 	//Executa consulta
 	$result = mysql_query("SELECT * FROM produtos WHERE id = '$id' LIMIT 1");
 	$resultado = mysql_fetch_assoc($result);
+	$id_produto = $resultado['id'];
 ?>
-<div class="container theme-showcase" role="main">      
-	<div class="page-header">
-		<h1>Visualizar Galeria</h1>
-	</div>
-	
-	<div class="row">
-		<div class="pull-right">
-			<a href='administrativo.php?link=9'><button type='button' class='btn btn-sm btn-success'>Editar</button></a>
-			<a href='administrativo.php?link=7'><button type='button' class='btn btn-sm btn-default'>Voltar</button></a>							
-
+	<div class="container theme-showcase" role="main">      
+		<div class="page-header">
+			<h1>Editar fotos da Galeria</h1>
 		</div>
-	</div>
-	<br>
-	<div class="container">
+		<div class="row">
+			<div class="pull-right">
+				<a href='administrativo.php?link=7'><button type='button' class='btn btn-sm btn-default'>Voltar</button></a>							
+
+			</div>
+		
+		</div>
+	<br>		
+		<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="row">
@@ -73,33 +73,43 @@
 		</div>
 
 	</div>
-	
-	<div class="container">
-	<h2>Lista de imagens</h2>
-	<hr>
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<div class="row">
-					<div class="col-sm-3">
-						<?php $foto = $resultado['imagem']; ?>
-						<img src="<?php echo "../foto/$foto"; ?>" width="100" height="100">
-						
-					</div>
-					<div class="col-sm-3">
-						<?php $foto = $resultado['imagem']; ?>
-						<img src="<?php echo "../foto/$foto"; ?>" width="100" height="100">
-					</div>	
-					<div class="col-sm-3">
-						<?php $foto = $resultado['imagem']; ?>
-						<img src="<?php echo "../foto/$foto"; ?>" width="100" height="100">
-					</div>		
-					<div class="col-sm-3">
-						<?php $foto = $resultado['imagem']; ?>
-						<img src="<?php echo "../foto/$foto"; ?>" width="100" height="100">
-					</div>						
-				</div>
+		<br>
+			<div class="container">  
+				<form id="uploadForm" action="processa/proc_edit_mult.php" method="post">  
+					<div id="gallery"></div><div style="clear:both;"></div><br /><br />  
+					<div class="col-md-4" align="right">  
+						<label>Upload Multiple Image</label>  
+					</div>  
+					<div class="col-md-4">  
+						<input name="files[]" type="file" multiple />  
+					</div>  
+					<div class="col-md-4">  
+						<input type="submit" submitvalue="Submit" />  
+					</div>  
+					<div style="clear:both"></div>  
+				</form>  
 			</div>
-		</div>
+	</div>
 	</div>
 </div> <!-- /container -->
-
+<script>
+$(document).ready(function(){
+    $('#uploadForm').on('submit', function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST", //O type que faltava
+            url: "processa/proc_edit_mult.php",
+            processData: false, //Aqui tem que ser false para pode enviar FormData
+            contentType: false,
+            data: new FormData(this),
+            success: function(data){
+                $("#galley").html(data);
+                alert("imagem foi");
+            },
+            error: function(a, b, c) { //Isto ser para tratar erros de HTTP ou conexão
+                alert([a, b, c]);
+            }
+        });
+    });
+});
+</script>

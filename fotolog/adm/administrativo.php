@@ -18,13 +18,26 @@ include_once("conexao.php");
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="css/theme.css" rel="stylesheet">
     <script src="js/ie-emulation-modes-warning.js"></script>
+	<!--Estilo-->
+	<style>
+		.tb_titulo{
+			text-align: center;
+		}
+		#mostra_foto{
+			text-align: center;
+		}
+	</style>
+
   </head>
 
   <body role="document">
 	<?php
 		include_once("menu_admin.php");
 		
-		$link = $_GET["link"];
+		if( isset($_GET["link"]) )
+		{
+			$link = $_GET["link"];
+		}
 		
 		$pag[1] = "bem_vindo.php";
 		$pag[2] = "listar_usuario.php";
@@ -36,15 +49,16 @@ include_once("conexao.php");
 		$pag[7] = "listar_upload.php";
 		$pag[8] = "visual_upload.php";
 		$pag[9] = "editar_upload.php";
-		//Projeto
-		$pag[10]  = "cadastra_projeto.php";
-		$pag[11] = "listar_projeto.php";
-		$pag[12] = "visual_projeto.php";
-		$pag[13] = "editar_projeto.php";
+		$pag[9] = "editar_fotos.php";
 		
-		if(!empty($link)){
-			if(file_exists($pag[$link])){
-				include $pag[$link];
+		if( !empty($link)  )
+		{
+			if( array_key_exists($link , $pag) )
+			{
+				if(file_exists($pag[$link]))
+				{
+					include $pag[$link];
+				}
 			}else{
 				include "bem_vindo.php";
 			}
@@ -54,8 +68,6 @@ include_once("conexao.php");
 		
 	?>
     
-	
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
